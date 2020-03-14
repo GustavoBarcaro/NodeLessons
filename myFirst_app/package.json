@@ -1,0 +1,15 @@
+{
+  "name": "myfirst_app",
+  "version": "1.0.0",
+  "description": "my studies of node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Gustavo Barcaro",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
