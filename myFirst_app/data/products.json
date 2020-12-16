@@ -1,0 +1,12 @@
+[{"id":"Uqz2GNjpR","title":"Sol ring ",
+"imageUrl":"https://img.scryfall.com/cards/normal/front/e/6/e672d408-997c-4a19-810a-3da8411eecf2.jpg?1568004958 ",
+"description":"Tap to add 2 incolor mana","price":"3.99"},
+{"id":"NZvhUg71L","title":"Rhystic study",
+    "imageUrl":"https://img.scryfall.com/cards/normal/front/d/6/d6914dba-0d27-4055-ac34-b3ebf5802221.jpg?1592706190",
+    "description":"Whenever an opponent casts a spell, you may draw a card unless that player pays 1","price":"22.99"},
+    {"id":"aj20vO4Ip","title":"Golos, Tireless Pilgrim",
+        "imageUrl":"https://img.scryfall.com/cards/normal/front/1/f/1fa48620-4c3d-4f75-be1f-c12c4aa59f51.jpg?1592517637","description":"A  really good commander","price":"3.49"},
+        {"id":"E2ovV54fU","title":"Ponder","imageUrl":"https://img.scryfall.com/cards/normal/front/9/1/91382955-bcfc-4fb6-8cce-dc107e5b4c32.jpg?1592710610",
+    "description":"Look at the top three cards of your library, then put them back in any order. You may shuffle your library.\r\n\r\nDraw a card","price":"2.79"},
+    {"id":"QJAUhYKMU","title":"Heroic Intervention","imageUrl":"https://img.scryfall.com/cards/normal/front/c/f/cf9fb88e-d13d-46d0-a3c5-da886f43ffb9.jpg?1592762641",
+        "description":"Permanents you control gain hexproof and indestructible until end od turn","price":"5.99"}]
