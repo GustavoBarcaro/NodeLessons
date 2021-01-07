@@ -14,7 +14,6 @@ router.get("/products", isAuth, adminController.getProducts);
 
 router.post("/add-product",[
     check('title', "Plese enter a valid title.").isString().isLength({min: 3}).trim(),
-    check('imageUrl',"Plese enter a valid Url.").isURL(),
     check('price',"Plese enter a valid Price.").isFloat(),
     check('description',"Plese enter a valid Description.").isLength({min: 5, max: 400}).trim(),
 ], isAuth, adminController.postAddProduct);
@@ -23,7 +22,6 @@ router.get("/edit-product/:id", isAuth, adminController.getEditProduct);
 
 router.post("/edit-product",[
     check('title', "Plese enter a valid title.").isString().isLength({min: 3}).trim(),
-    check('imageUrl',"Plese enter a valid Url.").trim().isURL(),
     check('price',"Plese enter a valid Price.").isFloat(),
     check('description',"Plese enter a valid Description.").isLength({min: 5, max: 400}).trim(),
 ], isAuth, adminController.postEditProduct);

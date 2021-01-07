@@ -7,6 +7,8 @@ const { validationResult } = require("express-validator");
 
 const User = require("../models/user");
 
+const { throwError } = require("../util/functions");
+
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
@@ -31,7 +33,7 @@ exports.getLogin = (req, res, next) => {
       email: "",
       password: "",
     },
-    validationErrors: []
+    validationErrors: [],
   });
 };
 
@@ -77,7 +79,7 @@ exports.postLogin = (req, res, next) => {
           pageTitle: "login",
           errorMessage: "Invalid email or password.",
           oldInput: { email: email, password: password },
-          validationErrors: []
+          validationErrors: [],
         });
       }
       bcrypt
@@ -98,7 +100,7 @@ exports.postLogin = (req, res, next) => {
             pageTitle: "login",
             errorMessage: "Invalid email or password.",
             oldInput: { email: email, password: password },
-            validationErrors: []
+            validationErrors: [],
           });
         })
         .catch((err) => {
@@ -106,7 +108,9 @@ exports.postLogin = (req, res, next) => {
           res.redirect("/login");
         });
     })
-    .catch((error) => console.log(error));
+    .catch((err) => {
+      return throwError(err, next);
+    });
 };
 
 exports.postSignup = (req, res, next) => {
@@ -139,16 +143,16 @@ exports.postSignup = (req, res, next) => {
     })
     .then((result) => {
       res.redirect("/login");
-      return transporter
-        .sendMail({
-          to: email,
-          from: "gsbarcaro@gmail.com",
-          subject: "Signup succeeded!",
-          html: "<h1>You successfully signed up!</h1>",
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // return transporter
+      //   .sendMail({
+      //     to: email,
+      //     from: "gsbarcaro@gmail.com",
+      //     subject: "Signup succeeded!",
+      //     html: "<h1>You successfully signed up!</h1>",
+      //   })
+    })
+    .catch((err) => {
+      return throwError(err, next);
     });
 };
 
@@ -201,8 +205,8 @@ exports.postReset = (req, res, next) => {
 							`,
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        return throwError(err, next);
       });
   });
 };
@@ -225,8 +229,8 @@ exports.getNewPassword = (req, res, next) => {
         userId: user._id.toString(),
       });
     })
-    .catch((error) => {
-      console.log(error);
+    .catch((err) => {
+      return throwError(err, next);
     });
 };
 
@@ -254,6 +258,6 @@ exports.postNewPassword = (req, res, next) => {
       res.redirect("/login");
     })
     .catch((err) => {
-      console.log(err);
+      return throwError(err, next);
     });
 };
