@@ -57,6 +57,7 @@ app.use(
   multer({ storage: fileStorage, fileFilter: fileFilter }).single("image")
 );
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(
   session({
     secret: "string_do_gustavo_barcaro",
@@ -101,6 +102,7 @@ app.get("/500", errorController.get500);
 app.use(errorController.get404);
 
 app.use((error, req, res, next) => {
+  console.log(error)
   res.redirect("/500");
 });
 
